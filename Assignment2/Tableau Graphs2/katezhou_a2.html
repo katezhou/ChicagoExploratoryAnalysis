@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html xml:lang="en" lang="en">
+<head>
+  <title>CSE442 Assignment 2</title>
+  <style>
+* { padding: 0; margin: 0; }
+
+body {
+  margin: 0 auto 0 auto;
+  padding: 0;
+  background-color: #33333f;
+  width: 840px;
+  font-family: "Avenir", "Avenir Next", Helvetica Neue, Arial;
+  font-size: 0.95em;
+}
+
+a, a:visited { text-decoration: none; color: #7533f4; }
+a:hover { text-decoration: underline; color: #f4b014; }
+img, a.img, a:hover.img { border: none; }
+
+img {
+  max-width: 800px;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #492a7c;
+  background-color: inherit;
+  font-weight: normal;
+  padding: 0 0 5px 0;
+  margin: 15px 0 0 0;
+  border: none;
+  clear: right;
+}
+h1 { font-size: 18pt; margin:  5px 0 10px 0; line-height: 28px; }
+h2 { font-size: 14pt; margin: 30px 0 15px 0; letter-spacing: 0.01em; border-bottom: 1px solid #ccc;  line-height: 20px;}
+h3 { font-size: 13pt; }
+h4 { font-size: 12pt; }
+h5 { font-size: 11pt; }
+p { margin: 0 0 10px 0; }
+hr { border: 0px; border-top: 1px solid #ccc; height: 0px; }
+ol { margin: 1em; }
+
+.content {
+  margin: 0;
+  padding: 15px 20px;
+  background-color: #ffffff;
+}
+
+.article {
+  line-height: 1.5em;
+}
+
+.entry  {
+  border-top: 1px solid #ddd;
+  padding-top: 2px;
+  margin-top: 3em;
+}
+  </style>
+</head>
+
+<body>
+<div class='content'>
+
+<section>
+  <h1>Assignment 2: Exploratory Data Analysis</h1>
+
+  <p>
+    <strong>Kaitlyn Zhou</strong> &mdash;
+    <em>katezhou@uw.edu</em>
+  </p>
+</section>
+
+<section>
+  <h2>Dataset</h2>
+
+  <p>
+    This dataset contains records from 335,706 cases that were reported in the city of Chicago in the year 2012. The raw data contained information on date of crime, location, primary type of crime, description, whether an arrest was made and whether it was a domestic crime. Other information was included to help uniquely identify the records. At times, there are two records for a single incident, perhaps when there are multiple parties involved in the crime. 
+  </p>
+
+  <p>
+    The data is available online at:
+    <strong>
+      <a href=https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2/data>https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2/data</a>
+    </strong>
+  </p>
+</section>
+
+
+
+<section>
+  <h2>Overarching Question: What factors influence crime rates in Chicago?</h2>
+  <ol>
+    <li>How does the time of year, week and day influence crime rates? </li>
+    <li>How do the crime patterns relate to the geography of Chicago? Are there areas that are known for specific kinds of crimes?</li>
+    <li>Are there specific crimes that correlate with one another? Is there potential for over policing biases to exist in these areas?</li>
+  </ol>
+</section>
+
+<section>
+
+
+  <h2>Discoveries &amp; Insights</h2>
+
+  The analysis below will take you through each of the questions above with the eventual goal of answer: what factors influence crime rates in Chicago?
+  <div class="entry">
+    <img src="Number of Crimes by Type.png"/>
+    <p class="caption">
+   There is an uneven distribution of crimes across the different types of crimes (crime type is based off Primary Types as indicated in each record). Chicago has a reputation for rates of gun violence and homicide, however this chart show that the number of homicide cases are negligible compared to that of theft and battery. One hypothesis for this difference is the value that our society and media places on addresses cases such as homicide and sexual assault; smaller crimes are often overlooked. For sake of scientific reliability, the five most common types of crimes are used for analysis as they are more reliable indicators of crime trends over time (with the exception to one analysis below). 
+    </p>
+  </div>
+
+  <div class="entry">
+    <img src="Type of Crimes and Rate of Arrests.png" />
+    <p class="caption">
+    When each of the crimes are sorted into the three large categories (defined by the LegalMatch Law Library), personal crimes, property crimes and drug crimes. Each category varies greatly in the rates of arrest. Most notable, in 2012, there was a 99% arrest rate among drug crimes (35,225 out of 35,487). Whereas the rate of arrest for personal crimes and property crimes are 22% and 13% respectively. 
+
+    </p>
+  </div>
+
+  <div class="entry">
+    <img src="Number of Crimes Over Months.png" />
+    <p class="caption">
+    The number of crimes per category are graphed throughout the months of 2012. Line graphs were chosen over area charts to lessen errors with aggregated effects. One trend shows that the number of crimes in theft, battery, burglary and criminal damage all increase as the months warm, peaking in July possibly due to overall more outdoor activities and inter-personal interactions. Narcotics activity peaks in February where all other crime activities dip (fewer number of days), possibly due to lack of accessibly to other forms of enjoyment during cold Chicago winters.
+
+    </p>
+  </div>
+
+  <div class="entry">
+    <img src="Average Number of Crimes of per Week of Day (2).png" />
+    <p class="caption">
+    The number of crimes per category are graphed in a horizontal trellis chart to show crime patterns throughout the week. Property crimes, burglary and theft are both dip drastically during Sundays and Saturdays, very likely due to the presence of homeowners being present. Battery suffers a significant increase on the weekends (from 149.2 to 195.5 average crimes per day); the following graph provides an explanation. Overall, weekdays do influence the rate of crimes, however based on the type of crime, this rate could increase or decrease depending on the presence of other humans. 
+    </p>
+  </div>
+
+    <div class="entry">
+    <img src="Average Number of Domestic Battery Cases.png" />
+    <p class="caption">
+    Above is an area graph with the total number of battery crimes split into domestic and non-domestic cases. The sum of the two types of battery give us the U shape as seen in figure 5. Additionally, this graph allows us to see the slight increase in the non-domestic cases of battery and the dramatic surge of domestic battery cases on weekends. Unfortunately for victims of domestic abuse, the time spent at home is correlated with the likelihood of abuse. 
+
+
+    </p>
+  </div>
+
+
+  <div class="entry">
+    <img src="Number of Crimes by Hour.png" />
+    <p class="caption">
+   Crime patterns are mapped by time of day. Property crimes peak during the middle of day, when homeowners are off at work while personal crimes peak at the end of the day when the work day is over and the sun has set. Narcotics experience two peaks, once at noon and once at 7:00pm perhaps when the work day is over. 
+    </p>
+  </div>
+
+
+  <div class="entry">
+    <img src="Crimes by Area.png" />
+    <img src="Crimes by Area (2).png" />
+    <p class="caption">
+    <p>Above are six trellis graphs that detail the location where each type of crime is occurring. All crimes, regardless of frequency were mapped and the most insightful ones were chosen for the sake of simplicity. The reason why certain graphs were eliminated is either due to too few data points or ubiquitous occurrence of crimes. Small colored marks are used to allow density of crimes to be visualized. Note that there is a limitation to the data as we know that theft is very common, bt around the west side of Chicago there are straight lines beyond which theft no longer occurs: indicating the bounderies of Chicago PD.</p>
+
+    <p>Other notable insights are that deceptive practices, such as fraud, are concentrated in downtown Chicago on the middle right. Locations of prostitution highlight vertical and horizontal lines throughout Chicago, mapping out the streets of where prostitutes are most likely doing their business.</p>
+
+    <p>Finally, the last three graphs all show a very similar pattern. The next figure explains this in further detail.</p> 
+
+    </p>
+  </div>
+
+  <div class="entry">
+    <img src="Area of Crimes Involving Narcotics and Crimes with Interference with Police.png" />
+    <p class="caption">
+    By overlaying the crimes related to interference with public officers and with narcotics, we see that interference with public officers almost always occur with the presence of narcotic crimes. We also know from figure 2 and 3 that narcotic crimes have an approximately 99% arrest rate; confirming the presence of public officers. Here, it’s possible that the reason why interference with officers has occurs frequently in areas where narcotic crimes are prevalent is due to a high presence of police overall. High rates of drug crime could be fuel for inteference with public officers and even robbery. However, whereas robbery is most likely a phenomenon due of having drugs in the area, interference with police may be a result of over policing in known drug zones. These drug zones might be known not because there are high number of criminals but because of over policing in the first place. We see the likely existence of a cyclical pattern of overpolicing that damages these communities.
+    </p>
+  </div>
+
+
+  <div class="entry">
+    <img src="Correlation Between Narcotics and Interference with Police and Correlation with Robbery.png" />
+    <p class="caption">
+    To further confirm this finding, linear regressions were made to visualize the correlation between Robbery and Narcotics and Interference with Public Officers. In both cases, the upper and lower 95% confidence bands are relatively small and the p values for both are < 0.0001, assuring the significance and the reliability of the linear regressions. There is a correlation between narcotics and these two other crimes. 
+
+    </p>
+  </div>
+
+  <div class="entry">
+    <img src="Number of Crimes by Block.png" />
+    <p class="caption">
+    Above are box and whisker graphs for the number of crimes by type within each block. A logarithmic scale is used on the left to better see the medians of crime rates. To end on a positive note, despite all the crime that exists in Chicago, most of the blocks will only experience one or two crimes in their area throughout the course of a single year. Despite Chicago's reputation for homocide, most of these crimes will actually be theft or battery. However, there are dramatic outliers and residents of these areas should be aware and take the appropriate precautions. 
+    </p>
+  </div>
+
+  <div class="entry">
+    <h3>Summary</h3>
+    <p>
+    <li>Overarching Question: What factors influence crime rates in Chicago?</li>
+    <li>How does the time of year, week and day influence crime rates? </li>
+    <li>How does the time of year, week and day influence crime rates? </li>
+    <li>How do the crime patterns relate to the geography of Chicago? Are there areas that are known for specific kinds of crimes?</li>
+    <li>Are there specific crimes that correlate with one another? Is there potential for over policing biases to exist in these areas?</li>
+
+  <p>In summary, the time of year, week and day all have influences on crime rates. Most crime increases in the summer and dips in the winter times. Crime is constant throughout the workweek and depending on the type of crime, they increase or decrease on weekends. Time of day is also influenced based on the workday and when individuals are off work and at home.</p> 
+
+  <p>The geography of Chicago primarily influences crimes like deceptive practice where they occur downtown, most likely in corporate businesses while prostitution occurs further away from the core of the city along main streets. </p>
+
+  <p>Crimes do correlate with one another, particularly if the crime committed is related to high arrest rates. The presence of police officers will no doubt lead to more crime cases and arrests. This could be extremely problematic when there are systematic biases in policing which can be aggravated by this phenomenon. </p>
+
+  <p>With these newly found insights, it's possible to improve the way Chicago PD handles crime cases in a way that does not further damage the communities most in need. It's exciting to know that all of this data is accessible through public datasets, encouraging and allowing for civic participation.</p>
+
+    </p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
